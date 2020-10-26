@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-ENV DOJO_VERSION=0.6.2
+ENV DOJO_VERSION=0.10.2
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
   apk add --no-cache tini bash shadow sudo git curl && \
   git clone --depth 1 -b ${DOJO_VERSION} https://github.com/kudulab/dojo.git /tmp/dojo_git &&\
