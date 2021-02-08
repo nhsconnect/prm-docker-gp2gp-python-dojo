@@ -9,7 +9,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
 
 RUN \
   pip install tox && \
-  apk --no-cache add gcc musl-dev patch libffi-dev libressl-dev
+  apk --no-cache add gcc musl-dev patch libffi-dev libressl-dev cargo
 
 COPY profile /home/dojo/.profile
 COPY bashrc /home/dojo/.bashrc
