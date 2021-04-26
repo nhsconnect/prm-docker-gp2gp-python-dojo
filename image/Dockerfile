@@ -4,7 +4,7 @@ ENV DOJO_VERSION=0.10.2
 
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-  git ca-certificates tini sudo && \
+  git ca-certificates tini sudo build-essential && \
   git clone --depth 1 -b ${DOJO_VERSION} https://github.com/kudulab/dojo.git /tmp/dojo_git &&\
   /tmp/dojo_git/image_scripts/src/install.sh && \
   rm -r /tmp/dojo_git && \
