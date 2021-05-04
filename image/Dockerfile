@@ -1,4 +1,4 @@
-FROM python:3.9.1-slim-buster
+FROM python:3.9.4-slim-buster
 
 ENV DOJO_VERSION=0.10.2
 
