@@ -10,7 +10,7 @@ RUN apt-get update && \
   rm -r /tmp/dojo_git && \
   rm -rf /var/lib/apt/lists/*
 
-RUN pip install tox pipenv
+RUN pip install pipenv
 
 COPY profile /home/dojo/.profile
 COPY bashrc /home/dojo/.bashrc
