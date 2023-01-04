@@ -1,4 +1,4 @@
-FROM python:3.9.6-slim-buster
+FROM python:3.9.16-slim-buster
 
 ENV DOJO_VERSION=0.10.2
 
@@ -10,7 +10,7 @@ RUN apt-get update && \
   rm -r /tmp/dojo_git && \
   rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir pipenv==2022.1.8 awscli==1.19.84
+RUN pip install --no-cache-dir pipenv==2022.11.30 awscli==1.19.84
 
 COPY profile /home/dojo/.profile
 COPY bashrc /home/dojo/.bashrc
