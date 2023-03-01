@@ -10,7 +10,7 @@ RUN apt-get update && \
   rm -r /tmp/dojo_git && \
   rm -rf /var/lib/apt/lists/*
 
-RUN pip install --no-cache-dir pipenv==2022.11.30 awscli==1.19.84
+RUN pip install --no-cache-dir pipenv==2023.2.18 awscli==1.27.81
 
 COPY profile /home/dojo/.profile
 COPY bashrc /home/dojo/.bashrc
