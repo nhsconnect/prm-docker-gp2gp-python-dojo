@@ -13,7 +13,7 @@ fi
 source $DOCKER_OPS_FILE
 
 image_name="nhsdev/gp2gp-python-dojo"
-image_registry="dockerhub"
+image_registry="docker.io"
 image_dir="./image"
 
 function docker_login {
