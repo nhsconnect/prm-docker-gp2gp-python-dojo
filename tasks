@@ -13,15 +13,19 @@ fi
 source $DOCKER_OPS_FILE
 
 image_name="nhsdev/gp2gp-python-dojo"
-image_registry="docker.io"
+image_registry="dockerhub"
 image_dir="./image"
 
 function docker_login {
+  if [ -z "$DOCKERHUB_USERNAME" ]; then
+      echo "DOCKERHUB_USERNAME must be the dockerhub username"
+      exit 5;
+  fi
   if [ -z "$DOCKERHUB_PASSWORD" ]; then
     echo "DOCKERHUB_PASSWORD must be your dockerhub password or an API token"
     exit 5;
   fi
-  echo "$DOCKERHUB_PASSWORD" | docker login --username nhstomzo --password-stdin
+    echo "$DOCKERHUB_PASSWORD" | docker login --username $DOCKERHUB_USERNAME --password-stdin
 }
 
 function get_aws_ssm_secret {
@@ -42,7 +46,8 @@ case "${command}" in
       docker_ops::docker_build "${image_dir}" "${imagerc_filename}" "${image_name}" "${image_tag}" "${image_registry}"
       ;;
   build)
-      DOCKERHUB_PASSWORD=$(get_aws_ssm_secret "/repo/prod/user-input/gocd-dockerhub-password")
+      DOCKERHUB_USERNAME=$(get_aws_ssm_secret "/repo/prod/user-input/prm-team-dockerhub-username")
+      DOCKERHUB_PASSWORD=$(get_aws_ssm_secret "/repo/prod/user-input/prm-team-dockerhub-password")
       docker_login
       ./tasks build_local
       docker_ops::push "${image_dir}" "${imagerc_filename}"
