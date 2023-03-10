@@ -1,11 +1,10 @@
 FROM python:3.9.16-slim-buster
 
 ENV DOJO_VERSION=0.10.2
-ENV TZ=Etc/UTC
 
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-  jq git ca-certificates tini tzdata sudo build-essential && \
+  jq git ca-certificates tini sudo build-essential && \
   git clone --depth 1 -b ${DOJO_VERSION} https://github.com/kudulab/dojo.git /tmp/dojo_git &&\
   /tmp/dojo_git/image_scripts/src/install.sh && \
   rm -r /tmp/dojo_git && \
