@@ -2,3 +2,8 @@ fileignoreconfig:
 - filename: tasks
   checksum: 9441e8162c1013caa06f9e48cbde73dda2f058b87e0ea533ec36aee5120676ae
 version: ""
+
+fileignoreconfig:
+- filename: Dojofile
+  checksum: a300c3e9c287f0d3ecf66563b79d87e3e975b64cfdb23b760637535b795cb7a2
+version: ""
